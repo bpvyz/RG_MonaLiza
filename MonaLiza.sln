@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MonaLiza", "MonaLiza\MonaLiza.vcxproj", "{16636D67-4712-4566-ABDA-A076C016B347}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16636D67-4712-4566-ABDA-A076C016B347}.Debug|x64.ActiveCfg = Debug|x64
+		{16636D67-4712-4566-ABDA-A076C016B347}.Debug|x64.Build.0 = Debug|x64
+		{16636D67-4712-4566-ABDA-A076C016B347}.Debug|x86.ActiveCfg = Debug|Win32
+		{16636D67-4712-4566-ABDA-A076C016B347}.Debug|x86.Build.0 = Debug|Win32
+		{16636D67-4712-4566-ABDA-A076C016B347}.Release|x64.ActiveCfg = Release|x64
+		{16636D67-4712-4566-ABDA-A076C016B347}.Release|x64.Build.0 = Release|x64
+		{16636D67-4712-4566-ABDA-A076C016B347}.Release|x86.ActiveCfg = Release|Win32
+		{16636D67-4712-4566-ABDA-A076C016B347}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01304E8D-9496-46B0-98D8-D72E117E9EE5}
+	EndGlobalSection
+EndGlobal
