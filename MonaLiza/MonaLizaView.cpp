@@ -77,50 +77,6 @@ CBitmap* MonaLizaView::GetBitmapPuzzlePiece(CDC* pDC, int i) {
 	return ret;
 }
 
-void MonaLizaView::DrawTransparent(CDC* pDC, DImage* img)
-{
-	CRect rect(0, 0, img->Width(), img->Height());
-	int w = rect.Width();
-	int h = rect.Height();
-
-	CDC* srcDC = new CDC();
-	CDC* dstDC = new CDC();
-	srcDC->CreateCompatibleDC(pDC);
-	dstDC->CreateCompatibleDC(pDC);
-
-	CBitmap* src = new CBitmap();
-	CBitmap* dst = new CBitmap();
-	src->CreateCompatibleBitmap(pDC, w, h);
-	dst->CreateBitmap(w, h, 1, 1, NULL);
-
-	CBitmap* oldSrc = srcDC->SelectObject(src);
-	CBitmap* oldDst = dstDC->SelectObject(dst);
-
-	img->Draw(srcDC, rect, rect);
-	srcDC->SetBkColor(srcDC->GetPixel({ 0,0 }));
-	dstDC->BitBlt(0, 0, w, h, srcDC, 0, 0, SRCCOPY);
-
-	srcDC->SetBkColor(RGB(0, 0, 0));
-	srcDC->SetTextColor(RGB(255, 255, 255));
-	srcDC->BitBlt(0, 0, w, h, dstDC, 0, 0, SRCAND);
-
-	//Da centriramo sliku
-	Translate(pDC, -w / 2, -h / 2);
-
-	pDC->BitBlt(0, 0, w, h, dstDC, 0, 0, SRCAND);
-	pDC->BitBlt(0, 0, w, h, srcDC, 0, 0, SRCPAINT);
-
-	Translate(pDC, w / 2, h / 2);
-
-	srcDC->SelectObject(oldSrc);
-	dstDC->SelectObject(oldDst);
-
-
-	delete srcDC;
-	delete dstDC;
-	delete src;
-	delete dst;
-}
 
 void MonaLizaView::DrawTransparent(CDC* pDC, DImage* img, bool isBlue) {
 
@@ -363,10 +319,12 @@ void MonaLizaView::OnDraw(CDC* pDC)
 
 	DrawMem(mem);
 
+	/*
 	Translate(pDC, 250, 250);
 	Rotate(pDC, rotation * PI / 2);
 	Mirror(pDC, mx, my);
 	Translate(pDC, -250, -250);
+	*/
 	pDC->BitBlt(0, 0, rect.Width(), rect.Height(), mem, 0, 0, SRCCOPY);
 
 	pDC->SetGraphicsMode(orgmode);
@@ -429,6 +387,7 @@ void MonaLizaView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		this->isGridOn = !this->isGridOn;
 		Invalidate();
 	}
+	/*
 	if (nChar == 'Y') {
 		this->mx = !this->mx;
 		Invalidate();
@@ -441,5 +400,6 @@ void MonaLizaView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		this->rotation = (this->rotation + 1) % 4;
 		Invalidate();
 	}
+	*/
 	CView::OnKeyDown(nChar, nRepCnt, nFlags);
 }
