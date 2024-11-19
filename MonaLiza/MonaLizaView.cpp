@@ -77,7 +77,6 @@ CBitmap* MonaLizaView::GetBitmapPuzzlePiece(CDC* pDC, int i) {
 	return ret;
 }
 
-
 void MonaLizaView::DrawTransparent(CDC* pDC, DImage* img, bool isBlue) {
 
 	int w = img->Width();
